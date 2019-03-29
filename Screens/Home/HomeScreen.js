@@ -36,9 +36,8 @@ export default class HomeScreen extends React.Component {
               style={{ width: 100, height: 100 }}
               source={{ uri: article.image }}
             />
-            <Text>{article.category.name}</Text>
             <Text>{article.title}</Text>
-            <Text>{article.description}</Text>
+            <Text>{article.content}</Text>
           </View>
         );
     }
@@ -50,6 +49,7 @@ export default class HomeScreen extends React.Component {
                     data={this.state.articles}
                     renderItem={this.renderArticles.bind(this)}
                     keyExtractor={item => item.id.toString()}
+                    style={Styles.text}
                 />
             </View>
         );
@@ -62,5 +62,10 @@ const Styles = StyleSheet.create({
         backgroundColor: "#fff",
         alignItems: "center",
         justifyContent: "center"
+    },
+
+    text: {
+        paddingTop: 40,
+        fontSize: 30,
     }
 });
